@@ -40,7 +40,7 @@ def transform_data(data):
         'timestamp_coleta', 'data_coleta_api', 'moeda_origem', 'moeda_destino', 'valor_compra', 'valor_venda'
     ]]
 
-    print("Dados Transformados em DataFrame do Pandas.")
+    print("Dados Transformados Em DataFrame do Pandas.")
     print(df.head())
     return df
 
