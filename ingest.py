@@ -2,6 +2,7 @@ import requests
 import pandas as pd
 import json
 from datetime import datetime
+from database import save_to_db
 
 # URL da API para a cotação Dólar x Real
 API_URL = "https://economia.awesomeapi.com.br/json/last/USD-BRL"
@@ -46,4 +47,9 @@ def transform_data(data):
 
 if data:
     df_cotacao = transform_data(data)
-    
+
+    if not df_cotacao.empty:
+        save_to_db(df_cotacao)
+        print("Processo ETL completo para a coleta atual.")
+    else:
+        print("Nenhum dado válido para salvar.")
