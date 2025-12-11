@@ -3,6 +3,7 @@ import pandas as pd
 import json
 from datetime import datetime
 from database import save_to_db
+from analysis import fetch_historical_data, check_anomaly
 
 # URL da API para a cotação Dólar x Real
 API_URL = "https://economia.awesomeapi.com.br/json/last/USD-BRL"
@@ -49,7 +50,14 @@ if data:
     df_cotacao = transform_data(data)
 
     if not df_cotacao.empty:
+        # Salva a cotação atual no DB
         save_to_db(df_cotacao)
         print("Processo ETL completo para a coleta atual.")
+
+        # Busca o histórico e faz a análise
+        df_history = fetch_historical_data(days=7)
+
+        # Verifica se o valor atual é uma anomalia
+        is_anomaly = check_anomaly(df_cotacao, df_history, threshold=0.03)
     else:
         print("Nenhum dado válido para salvar.")
