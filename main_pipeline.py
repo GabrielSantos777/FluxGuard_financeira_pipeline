@@ -2,7 +2,7 @@ import requests
 import pandas as pd
 import json
 import os
-from dateetime import datetime
+from datetime import datetime
 from database import save_to_db
 from analysis import fetch_historical_data, check_anomaly
 
