@@ -73,24 +73,27 @@ source pipeline_env/bin/activate
 
 # Instale as dependências
 pip install pandas requests sqlalchemy psycopg2-binary dash plotly
-
+```
 ### 3. Configuração do Banco de Dados
 Importante: Atualize a variável DB_PASSWORD dentro do arquivo database.py com sua senha real do PostgreSQL.
 
 ### 4. Configuração do Ambiente Python
-Para rodar uma única coleta, salvando e analisando
+```bash
+# Para rodar uma única coleta, salvando e analisando
 python main_pipeline.py 
-
+```
 ### 5. Execução do Dashboard Web
-Para iniciar o Dashboard (acessível em [http://127.0.0.1:8050/](http://127.0.0.1:8050/))
+```bash
+# Para iniciar o Dashboard (acessível em [http://127.0.0.1:8050/](http://127.0.0.1:8050/))
 python dashboard.py
-
+```
 ### 6. Execução do Módulo Go
-Navegue até a pasta do módulo
+```bash
+# Navegue até a pasta do módulo
 cd go_monitor
-Execute o programa Go
+# Execute o programa Go
 go run monitor.go
-
+```
 ## Contribuição
 
 Contribuições são bem-vindas! Sinta-se à vontade para criar problemas (issues) ou enviar solicitações de pull (pull requests) para melhorias ou correções.
